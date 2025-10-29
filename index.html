@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <style>
-    .justified-text {
-      text-align: justify;
-    }
-    .skills.section-bg {
+        .justified-text {
+            text-align: justify;
+        }
+     .skills.section-bg {
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       padding: 80px 0;
     }
@@ -117,7 +117,6 @@
       position: relative;
       transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
-      width: 0% !important; /* Start at 0 */
     }
     .skill-progress-bar::after {
       content: '';
@@ -236,10 +235,6 @@
       margin-bottom: 15px;
       display: block;
       filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 15px;
-      object-fit: contain;
     }
     .database-name {
       font-size: 1.3rem;
@@ -320,25 +315,6 @@
     .skill-card:nth-child(4) { animation-delay: 0.4s; }
     .skill-card:nth-child(5) { animation-delay: 0.5s; }
     .skill-card:nth-child(6) { animation-delay: 0.6s; }
-    /* Resume Download Link */
-    .resume-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #667eea;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      padding: 12px 24px;
-      border: 2px solid #667eea;
-      border-radius: 25px;
-      margin-top: 20px;
-    }
-    .resume-download:hover {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      transform: translateY(-2px);
-    }
     /* Responsive */
     @media (max-width: 768px) {
       .skills-grid {
@@ -363,8 +339,6 @@
   <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon.png">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -382,12 +356,12 @@
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="assets/img/profile-img.png" alt="Sachindu Gimahana Profile Picture" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Sachindu Gimahana</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/sachindupathirawasam/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/SachinduG" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://sachindugimhana.medium.com/" class="medium"><i class="bx bxl-medium"></i></a>
+          <a href="https://github.com/SachinduG" class="gihub"><i class="bx bxl-github"></i></a>
+          <a href="https://sachindugimhana.medium.com/" class="facebook"><i class="bx bxl-medium"></i></a>
           <a href="https://twitter.com/Sachindu15" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="https://www.instagram.com/sachindu.ig/" class="instagram"><i class="bx bxl-instagram"></i></a>
         </div>
@@ -404,7 +378,6 @@
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
@@ -412,7 +385,6 @@
       <p>I'm <span class="typed" data-typed-items="RPA Developer, Power platform Developer, Web Developer, Android Developer"></span></p>
     </div>
   </section><!-- End Hero -->
-
   <main id="main">
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -425,7 +397,7 @@
         </div>
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Sachindu Gimahana">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>RPA Developer</h3>
@@ -449,7 +421,6 @@
         </div>
       </div>
     </section><!-- End About Section -->
-
    <!-- Enhanced Skills Section -->
   <section id="skills" class="skills section-bg">
     <div class="container">
@@ -457,15 +428,14 @@
         <h2>Technical Skills</h2>
         <p>Expertise across various technologies and platforms</p>
       </div>
-
       <!-- Featured Skills with Circular Progress -->
       <div class="featured-skills">
         <div class="featured-skill">
           <div class="circular-progress">
             <svg width="140" height="140">
               <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-              <circle class="circle-progress" cx="70" cy="70" r="65" 
-                style="stroke: url(#gradient1);" data-percentage="80"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65"
+                style="stroke: url(#gradient1); stroke-dashoffset: 82;"></circle>
               <defs>
                 <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
@@ -479,13 +449,12 @@
           </div>
           <span class="circle-label">UiPath</span>
         </div>
-
         <div class="featured-skill">
           <div class="circular-progress">
             <svg width="140" height="140">
               <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-              <circle class="circle-progress" cx="70" cy="70" r="65" 
-                style="stroke: url(#gradient2);" data-percentage="80"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65"
+                style="stroke: url(#gradient2); stroke-dashoffset: 82;"></circle>
               <defs>
                 <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
@@ -499,13 +468,12 @@
           </div>
           <span class="circle-label">Power Automate</span>
         </div>
-
         <div class="featured-skill">
           <div class="circular-progress">
             <svg width="140" height="140">
               <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-              <circle class="circle-progress" cx="70" cy="70" r="65" 
-                style="stroke: url(#gradient3);" data-percentage="75"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65"
+                style="stroke: url(#gradient3); stroke-dashoffset: 102;"></circle>
               <defs>
                 <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
@@ -519,13 +487,12 @@
           </div>
           <span class="circle-label">HTML5</span>
         </div>
-
         <div class="featured-skill">
           <div class="circular-progress">
             <svg width="140" height="140">
               <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-              <circle class="circle-progress" cx="70" cy="70" r="65" 
-                style="stroke: url(#gradient4);" data-percentage="75"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65"
+                style="stroke: url(#gradient4); stroke-dashoffset: 102;"></circle>
               <defs>
                 <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
@@ -540,10 +507,8 @@
           <span class="circle-label">Java</span>
         </div>
       </div>
-
       <!-- All Skills Grid -->
       <div class="skills-grid">
-        <!-- Skill cards remain the same but with data-width attributes -->
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -553,23 +518,21 @@
             <span class="skill-percentage">75%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="75%"></div>
+            <div class="skill-progress-bar" style="width: 75%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
-              <span class="skill-icon">🚀</span>
+              <span class="skill-icon"><img src="data:image/png;base64,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"></span>
               JavaScript
             </div>
             <span class="skill-percentage">50%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="50%"></div>
+            <div class="skill-progress-bar" style="width: 50%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -579,10 +542,9 @@
             <span class="skill-percentage">70%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="70%"></div>
+            <div class="skill-progress-bar" style="width: 70%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -592,10 +554,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -605,10 +566,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -618,10 +578,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -631,10 +590,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -644,10 +602,9 @@
             <span class="skill-percentage">75%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="75%"></div>
+            <div class="skill-progress-bar" style="width: 75%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -657,10 +614,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -670,10 +626,9 @@
             <span class="skill-percentage">60%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="60%"></div>
+            <div class="skill-progress-bar" style="width: 60%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -683,10 +638,9 @@
             <span class="skill-percentage">50%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="50%"></div>
+            <div class="skill-progress-bar" style="width: 50%"></div>
           </div>
         </div>
-
         <div class="skill-card">
           <div class="skill-header">
             <div class="skill-name">
@@ -696,11 +650,10 @@
             <span class="skill-percentage">50%</span>
           </div>
           <div class="skill-progress-wrapper">
-            <div class="skill-progress-bar" data-width="50%"></div>
+            <div class="skill-progress-bar" style="width: 50%"></div>
           </div>
         </div>
       </div>
-
       <!-- Database Section -->
       <div class="database-section">
         <div class="section-title">
@@ -709,95 +662,465 @@
         </div>
         <div class="database-grid">
           <div class="database-card">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiM0REJBNDYiLz4KPHBhdGggZD0iTTMyIDM4LjY2NjdDNDAuODIgMzguNjY2NyA0Ny44IDMxLjY4NjcgNDcuOCAyMi44NjY3QzQ3LjggMTQuMDQ2NyA0MC44MiA3LjA2NjY3IDMyIDcuMDY2NjdDMjMuMTggNy4wNjY2NyAxNi4yIDE0LjA0NjcgMTYuMiAyMi44NjY3QzE2LjIgMzEuNjg2NyAyMy4xOCAzOC42NjY3IDMyIDM4LjY2NjdaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDcuOCAyMi44NjY3SDQ0LjZDMzkuNjIgMzEuMDI2NyAzNi4zMiAzOC42NjY3IDMyIDM4LjY2NjdDMjcuNjggMzguNjY2NyAyNC4zOCAzMS4wMjY3IDE5LjQgMjIuODY2N0gxNi4yQzE2LjIgMzEuNjg2NyAyMy4xOCAzOC42NjY3IDMyIDM4LjY2NjdDNDAuODIgMzguNjY2NyA0Ny44IDMxLjY4NjcgNDcuOCAyMi44NjY3WiIgZmlsbD0iIzREQkE0NiIvPgo8L3N2Zz4K" alt="MongoDB" class="database-icon">
+            <span class="database-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFmElEQVR4nO2Z208UVxjAp8aH2se+mLTxoX9AH3xiQWDZZee2O/fZXfbGpQJtQi1mtWphYS+yVSywahUhoGyBGO60TZMmJH1orEUbEvtS+2RjE9O0NbFNqC2iyGnO6M7MFpgbi7UpX3KSzc453/f95pzzfd85gyDbsi3bYklsUd8uvg31et/H+vgP8C/5M+Qtrt/9OzNMPaRG6BV6jFmlZjgAm/R7hF5hPqKWYR/YF44ROrA+ob1S9EVtu5CtlsAZ524hjSW4HmKBGaTuU9MsoD7mCtLoaRawA577fBe+IMSxRKDFubtgjjMJ5hU+Q96gJpnVQjmsCzTOrPJd+Ld1h7A9m3KePUa+zlyi/trIEDPKAD5DAG+bC/ibHSBQWw5Cwj4QZkpAhLCBiPNpI2zSf/BZoK5c6gvH8BlC0rGh/ouepcCh8r2WAbhe8ie1QnaQAt44CgL7y0GELAbVFUUFaRGyWNIptqOSDbVN7jR5F0GQF0w7LyTxamWNcpKBQjms16oa7dLmz9n3Rp1vmQbgT+FzsoI4asmRAyONwNvqsjRWPI7JAEIa+8o0APsh+WNOgZW33zTwBkhdS0vjfYcrTY8P7LerlhHxs2kAGK9zCoJVpaaM17/HguS1DhmAmmVBsMbcSwgGSpW9d4FcNA1AZz3LOQUhtsSw4VrBDtquJiTnZQC4jy4zIEIY3/hhrkSJRllq2TzAZfpxTkEYN264eapJdl4NAJuYwgzriRDFCvwovWIeYEJJXBHUZshoXT0uL531AKhZDoT4fcYgUJsCMMasmgZQlwrVTmtvfw2AmVlwqgCmWWAeQBWHqx36BmuoUhD/OqULQE+yIIIZmFFHkTJuhrMAMK5aQgYMNqTENc6vB2A0LEew4s0tIWaUeSRvYo9+FGoebzIMICb1E2OYUgGM0I/MAwxRS3Ie8OnngaNfHDMMwF3w6OoL+pQ8wFyilkwDsL3uuzkFsDbRM9h6pd0wADNM6eqraqxQElkv+atpAL6b+CanwHdEvxRYbwNvBAA3sp4+35FKuT/fjV83DSB0YIOygh5S12Bi/nhBAfgeUtkzaazfNIDYXsEqUQAa1I5EsStx40tohNYBsAFmXDnoQF8QK6KORMFQmabRdz8/bBhAb0ZDgTJ1BDJfRuSEy5A3lQyqHfqaBuoMA/iiTk1d3oRyFuBPE99ZBhBTrlZVMgER18bLqMbvAMn5Dn2AGe28Eqm0SZVrrr83ibZYBkASyA54l5NT5m/WfnMHZ9/RBRDS2rWQ/4BDtVeohwm7fad1ABiNThKfqjcffEMbGa8NOtaE07zoA2fRo1GaO22AydIK7AnsE2Sz4ks7X6XHlLOBXk6ojwsgNf/EeXiwqZ9reFpKs9KVimbsjzpVsPRjaHvTANIsnMAmZMVTLAhx2jX929kGCaBroROcv9H9BPyoNniYLgH0hFLCiyfRcaRQQr1JvcQM0Q/kWqbfI11YaUIMN4K521Pg6p3PgLdFJ5M7igB33q2s/SH6gT1hfxEppPjirqD6kCOkcZ1kVARu3bsuNb1+YhuaF6XEGFqLbIXwncpdkZFlYQTAf1BZ91Lc78TnkC2TBLKDO+u+rTbojaGWAfzNDumcLFed59x3Nh029cQXxV5mBzyLeRBt8PbN2MF/vWqTgs4PeBahbuRZCBvD9jCD7j/yDinnSBB265/c4PFUOIXnO3/R86cvhr6GPEuBMZrt9/yWV2WO0iBQU6Z528Zk82+f2T7PvYLFeyvhlc8Q36+pNjvxvIwbJoulEgIms7xZy5A3oQ7k3xb4rYuaYPO/4Eyx0q22FCIn//E5aoJdhWOQ50nEtsq93Fnyh/XK57wl0+v+RYxhJcjzKkLSlaCzSgUrlyBZahk+Q/4LkrDbd4od2BkYXWCDv7c8vm/LtvxP5W9RXIuemYtrDAAAAABJRU5ErkJggg==" alt="mongodb"></span>
             <div class="database-name">MongoDB</div>
           </div>
-
           <div class="database-card">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTZIMjRWNDBIMFYxNloiIGZpbGw9IiNGRjdCMDAiLz4KPHBhdGggZD0iTTI0IDE2SDQ4VjQwSDI0VjE2WiIgZmlsbD0iIzAwOTZENTIiLz4KPHBhdGggZD0iTTAgNDBIMjRWNjRIMFY0MFoiIGZpbGw9IiNGRjc0QjYiLz4KPHBhdGggZD0iTTI0IDQwSDQ4VjY0SDI0VjQwWiIgZmlsbD0iIzVFQzNFRCIvPgo8L3N2Zz4K" alt="Firebase" class="database-icon">
+            <span class="database-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAACsElEQVR4nO2UX0gUQRzHh507LXN31j8kkhAFSfQWvhUlBD0EIeLdrJ7trlrmgxQIB97d/rk5uZs95/oDBiFCENVDkCDUc/hk553e+VCBWbcrEWSYL0H4EEGxJx6cFFJcD4Hfp/n9m8/8Zn4MAHv6byXiyH0Ba9NCjx4AmFRVHIAkY4zvJK2ipA0jrD+plYzBCiMIx0sG5buMY0VgL+lCcvJcRRFI0saaA6SxZKvJwXo1caiCACMIhkhNyTE05UWKNVIxgIg1E/VoI7WYnChB5UT/gR7aVBlAwGxHWMvw2GBlXajUX6cmLoBKqUkmB0FvuG7bdjsQFUsRVasD/As1D5EaJNPR+kvjLQApNCgqNLodRCp9KMj0/M4im4Imh8FHNoOPCynP6dcEVNkpGLcZN2MzyN5OgGonxamFG7A0qmggeRSICp0RFasArk9UN/TR46JKN9xJQEryZMNlxoM+sg/1JdtsBmMO40JuYW4KeFdT3IjDOKMIT8FJe5y75qQgdSFlJxMVaxapdFJUrItIoTFRsW4jlSaQYsWRTK+IavIsUuldh3naHQYLqwx2unUO454Vbnrbttaww2bwwS8BvC/0FUn6KMKRguALr4sBU0M48k7o1rsFf/iTgLWngqRPuLlLcXAqY8D1BRMupnW4kSPeftefJzCWNeFyNgrnFqNwqgwg+EKbAN/aL/hGvyOs5RDWrwo4srYFD2+6UCQHj2TGQcsPAjw50zOc1rkvC1GYXjC4WTcva8JXOQLvZE34Ir8TgPzaShEkac95bMiizzyDsL5YjGFtRZAiL4v3HvMEMwZ8P2/Aj0sxbyAfB4ezBlxO63BtToPf8lFPKGfCe649b8APSwYo/lG/lSDp04I//JnvDLfuMpXgDQGN+ah3YLe88rcpbky4PyraE/gL/QSo5va4BA2xZwAAAABJRU5ErkJggg==" alt="external-mysql-an-open-source-relational-database-management-system-logo-shadow-tal-revivo"></span>
             <div class="database-name">Firebase</div>
           </div>
-
           <div class="database-card">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiMwMDk2RDUyIi8+CjxwYXRoIGQ9Ik0zMiAxMkM0My4wNDU3IDEyIDUyIDIwLjk1NDMgNTIgMzJDNTIgNDMuMDQ1NyA0My4wNDU3IDUyIDMyIDUyQzIwLjk1NDMgNTIgMTIgNDMuMDQ1NyAxMiAzMkMxMiAyMC45NTQzIDIwLjk1NDMgMTIgMzIgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMzIgMTZDNDEuODggMTYgNTAgMjQuMTIgNTAgMzRDNTAgNDMuODggNDEuODggNTIgMzIgNTJDMjIuMTIgNTIgMTQgNDMuODggMTQgMzRDMTQgMjQuMTIgMjIuMTIgMTYgMzIgMTZaIiBmaWxsPSIjMDA5NkQ1MiIvPgo8cGF0aCBkPSJNMzIgMjBDMzkuNzMyIDIwIDQ2IDI2LjI2OCA0NiAzNEM0NiA0MS43MzIgMzkuNzMyIDQ4IDMyIDQ4QzI0LjI2OCA0OCAxOCA0MS43MzIgMTggMzRDMTggMjYuMjY4IDI0LjI2OCAyMCAzMiAyMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" alt="MySQL" class="database-icon">
+            <span class="database-icon"><img src="data:image/png;base64,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" alt="mongodb"></span>
             <div class="database-name">MySQL</div>
           </div>
-
           <div class="database-card">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTZIMjRWNDBIMFYxNloiIGZpbGw9IiNENzIyMTYiLz4KPHBhdGggZD0iTTI0IDE2SDQ4VjQwSDI0VjE2WiIgZmlsbD0iIzAwOTZENTIiLz4KPHBhdGggZD0iTTAgNDBIMjRWNjRIMFY0MFoiIGZpbGw9IiMwMDk2RDUyIi8+CjxwYXRoIGQ9Ik0yNCA0MEg0OFY2NEgyNFY0MFoiIGZpbGw9IiNENzIyMTYiLz4KPC9zdmc+Cg==" alt="MS SQL Server" class="database-icon">
+            <span class="database-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAACNElEQVR4nLWTwWsTQRSHX4k0UA2UQkwQvei6O43Si3jIyYP14MF/oDc9e/EiPbVBTS4KFaEHS7vZxILoQZDebWuCulMVDVakFrSoFBVJD5vE2Ex/sptk2VA3naR24B12mPm+937DEvksGHQXMxSjvVowqACD7u8N/CEFYFAFBglk6eT/F2RJgUFo1Ky7r9MI7tHh3Qt0uuAK0lTDNGnI0kFnqjRldi9I01XPBIBBWaTpulfonn2thGEyE3xwuBOB3iJI04aYCrz1fGc88AI4Azgb60TwwiuoTfbOV5IDuZbYHoXiHrhdD+QFBm14BMXytXDRGo/UxFRgzdmbDQD5Yz89cIBry3LwaTrk7X7zTnChNB6BXZUbA7k6/KjVCncEm1hRgjLxnG3ChU7fS4lwuSkopaJ/RE4pboc36rk6JBPPZbf7232LTXg5FYVYVP3hdpnaiMwEk42H/GIlwlUXvnD8V1u4I2BJGcETp/uJUN7T+Y8d4XXBY5mI1oXe89Eai4hSMrolnqrrUvC6YHWn7vvt7n/fDJmlVLQmctpXaXhdIPBmaL+/IENx6D3LVipSFXl1rSO4W+ppf4FOl6oT/Vzk1U/dwZn9P1z0FdRmDozimbbaPZzZdct/gpx6Hpx1ljtveYMCTBZv/9AvT/XB1BLgrCIP1iznzrtYb1t4i+hVTAHX5iQynwM/cUQavE3EB4fB2ft/xPEBS+xc1+AWyYoShMlGYbJvMLXPWGJXMH9mn8zlv7lqKDpYHNBqAAAAAElFTkSuQmCC" alt="external-firebase-a-googles-mobile-platform-that-helps-you-quickly-develop-high-quality-apps-logo-color-tal-revivo"></span>
             <div class="database-name">MS SQL Server</div>
           </div>
-
           <div class="database-card">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiNDNzQxMUEiLz4KPHBhdGggZD0iTTMyIDEyQzQzLjA0NTcgMTIgNTIgMjAuOTU0MyA1MiAzMkM1MiA0My4wNDU3IDQzLjA0NTcgNTIgMzIgNTJDMjAuOTU0MyA1MiAxMiA0My4wNDU3IDEyIDMyQzEyIDIwLjk1NDMgMjAuOTU0MyAxMiAzMiAxMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zMiAxNkM0MS44OCAxNiA1MCAyNC4xMiA1MCAzNEM1MCA0My44OCA0MS44OCA1MiAzMiA1MkMyMi4xMiA1MiAxNCA0My44OCAxNCAzNEMxNCAyNC4xMiAyMi4xMiAxNiAzMiAxNloiIGZpbGw9IiNDNzQxMUEiLz4KPHBhdGggZD0iTTMyIDIwQzM5LjczMiAyMCA0NiAyNi4yNjggNDYgMzRDNDYgNDEuNzMyIDM5LjczMiA0OCAzMiA0OEMyNC4yNjggNDggMTggNDEuNzMyIDE4IDM0QzE4IDI2LjI2OCAyNC4yNjggMjAgMzIgMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Oracle" class="database-icon">
+            <span class="database-icon"><img src="data:image/png;base64,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" alt="oracle-pl-sql--v3"></span>
             <div class="database-name">Oracle</div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Certificates Section -->
+        <br>
+        <div class="row skills-content">
   <section id="certificates" class="portfolio section-bg">
-    <div class="container">
-      <div class="section-title">
-        <h2>Certificates</h2>
-        <p>Here are some of the professional certifications I've earned from Microsoft, IBM, UiPath, and other platforms.</p>
+  <div class="container">
+    <div class="section-title">
+      <h2>Certificates</h2>
+      <p>Here are some of the professional certifications I’ve earned from Microsoft, IBM, UiPath, and other platforms.</p>
+    </div>
+    <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+      <!-- Certificate Card -->
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/UIPathAI.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>UiPath Academy Specialized AI Associate Training</h4>
+            <a href="https://credentials.uipath.com/e3f052d5-29d3-4334-a957-a23d569e7412#acc.fXVCaHqs"" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-        <!-- Certificate Cards - Make sure your images exist in assets/img/ -->
-        <div class="col-lg-4 col-md-6 portfolio-item">
-          <div class="certificate-card">
-            <img src="assets/img/UIPathAI.png" class="img-fluid" alt="UiPath AI Associate Certificate">
-            <div class="certificate-info">
-              <h4>UiPath Academy Specialized AI Associate Training</h4>
-              <a href="https://credentials.uipath.com/e3f052d5-29d3-4334-a957-a23d569e7412#acc.fXVCaHqs" target="_blank" class="details-link">
-                <i class="bx bx-link"></i> View Certificate
-              </a>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/MSPPF.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Microsoft Certified: Power Platform Fundamentals</h4>
+            <a href="https://www.credly.com/badges/5214a1e7-d6f6-434c-a616-e87c9ec29f65/linked_in?t=rqjdnb" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/AIF.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>IBM SkillsBuild: Artificial Intelligence Fundamentals</h4>
+            <a href="https://www.credly.com/badges/e5d335fe-0fbd-48f7-a46c-d4ef3d1dbcc3/linked_in_profile" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/UIPathADT.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>UiPath Academy Automation Developer Associate Training</h4>
+            <a href="https://credentials.uipath.com/568902e9-9512-43a6-bf83-538c4cb4b883" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/CF.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>IBM SkillsBuild Cybersecurity Fundamentals</h4>
+            <a href="https://www.credly.com/badges/4cb44c27-bff6-4cd1-b473-0301bac5ecfc/linked_in_profile" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/C#.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Foundational C# with Microsoft Certification</h4>
+            <a href="https://www.freecodecamp.org/certification/fcc3c5d4a9d-d82a-4287-a84a-d20b6756f27d/foundational-c-sharp-with-microsoft" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/Cyber2.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Getting Started in Cybersecurity 2.0</h4>
+            <a href="https://www.credly.com/badges/40a391d2-f47a-42b2-9462-93808b28fb96/linked_in_profile" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/Fort.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Fortinet Certified Fundamentals Cybersecurity</h4>
+            <a href="https://www.credly.com/badges/103b867c-0b2c-4080-a568-2e028eb70e5b/linked_in_profile" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/Data.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>IBM SkillsBuild Data Fundamentals</h4>
+            <a href="https://www.credly.com/earner/earned/badge/2a1c0b2e-42ee-4ab9-b545-4fc7f4969c0f" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/threat.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Introduction to the Threat Landscape 2.0</h4>
+            <a href="https://www.credly.com/earner/earned/badge/f66e2234-5230-4735-a528-6e71d8cb780e" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/Cyber1.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>Technical Introduction to Cybersecurity 1.0</h4>
+            <a href="https://www.credly.com/earner/earned/badge/2c776a0e-9a27-4107-abb7-16cd5d97ebb8" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/Python.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>The Complete Python Bootcamp From Zero to Hero</h4>
+            <a href="https://ibmcsr.udemy.com/certificate/UC-c70fd67e-338b-4b81-bfef-3c15b55d67c2/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="certificate-card">
+          <img src="assets/img/mongo.png" class="img-fluid" alt="">
+          <div class="certificate-info">
+            <h4>From Relational Model to MongoDB's Document Model</h4>
+            <a href="https://www.credly.com/badges/faecc945-7429-4ee8-b498-c0c47106c197/public_url" target="_blank" class="details-link">
+              <i class="bx bx-link"></i> View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Certificates Section -->
+    <div class="col-lg-12" data-aos="fade-up">
+    <div class="section-title">
+          <h5>Research Paper Publication</h5>
+    </div>
+   
+    <div class="progress">
+      <span class="skill">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXUlEQVR4nI2TPUsDQRCGL79AGws7vxottBZU0ErIzVxEhDTWBkSwy81cxMr/IP4Cg0hIMrMKWgiCjf4AURQFC9EitlaRIVFDPu5uyoVnd9/32fW8lJMNZQJZT4HlC1mfgJQ9r5lJBSO5GWR9B9a9YL8ynCvJNLDeAclOIgzh+RSSvgUkW53rAdUXkeUxFl7js1EkfUHWQk+kYn3O4nixp5Mct7J2TzODrGVgrSZsoI2N4sUQRrKELJe/MLAeIulnLnKTsRsg62uWXN4KRJLlThjIzfbPzFq2k1uq3C2QfiPpNkS6giyVgXBQPBtD0mdTZdfOllzeYCC5aXtvAMsJRNXxgXDQVuVHbsGu7Ye1zURVq+RGDP5X1cwg6YMVZ48mWRXLUX9VVqJEKVTJvWXuhbWALB/Jqkiu7bl2rlkXBvdtu3t81nVkufLD2rx9EmQ5SA3/xeD6rrUdq2rA/ABYYtMYXAS4DQAAAABJRU5ErkJggg==">
+        <a href="https://ieeexplore.ieee.org/document/9965696">Intelligent System for Skin Disease Detection of Dogs with Ontology Based Clinical Information Extraction</a>
+      </span>
+    </div>
+  </div>
+</div>
+      </div>
+    </section><!-- End About Section -->
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container">
+        <div class="section-title">
+          <h2>Resume</h2>
+          <a class="nav-link" href="SachinduPathirawasamCV.pdf"><i class="fas fa-file-alt fa-fw mr-2"></i>View Resume</a>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-up">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h4>Sachindu Gimhana</h4>
+              <p><em>Master Student at Linköping University</em></p>
+              <ul>
+                <li>Kristinagatan 26A, lgh 1302, Norrköping 60232, Östergötland, Sweden</li>
+                <li>+46 76 251 9803</li>
+                <li>sachindugimhana0@gmail.com</li>
+              </ul>
+            </div>
+            <h3 class="resume-title">Work</h3>
+            <div class="resume-item">
+              <h4>Associate Solutions Developer (RPA)</h4>
+              <h5>2023 - 2024</h5>
+              <p><em>John Keells Information Technology</em></p>
+              </div>
+            <div class="resume-item">
+              <h4>Intern RPA</h4>
+              <h5>2022 - 2023</h5>
+              <p><em>John Keells Information Technology</em></p>
+            </div>
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Computational Social Science, Master's Programme</h4>
+              <h5>2024 - Present</h5>
+              <p><em>Linköping University </em></p>
+              </div>
+            <div class="resume-item">
+              <h4>BSc (Hons) in Information Technology Specialising in Software Engineering</h4>
+              <h5>2019 - 2023</h5>
+              <p><em>Sri Lanka Institute of Information Technology (SLIIT)</em></p>
+              </div>
+            <div class="resume-item">
+              <h4>GCE (A/L) Examination - Physical Science Stream</h4>
+              <h5>2015 - 2017</h5>
+              <p><em>Mahinda College Galle</em></p>
+            </div>
+            <div class="resume-item">
+              <h4>GCE (O/L) Examination</h4>
+              <h5>2004 - 2014</h5>
+              <p><em>Kithulampitiya Ananda Vidyalaya Galle</em></p>
             </div>
           </div>
         </div>
-        <!-- Add other certificate cards similarly -->
       </div>
-    </div>
-  </section>
-
-  <!-- Research Paper Section -->
-  <section class="about">
-    <div class="container">
-      <div class="row skills-content">
-        <div class="col-lg-12" data-aos="fade-up">
-          <div class="section-title">
-            <h5>Research Paper Publication</h5>
+    </section><!-- End Resume Section -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Projects that I have done before.</p>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/Parkme.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/Adminside-of-Automated-Parking-System" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Automated Parking System<br/></h5>
           </div>
-          <div class="progress">
-            <span class="skill">
-              <i class="fas fa-file-alt"></i>
-              <a href="https://ieeexplore.ieee.org/document/9965696">Intelligent System for Skin Disease Detection of Dogs with Ontology Based Clinical Information Extraction</a>
-            </span>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/RentJet.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/Adminside-of-Vehicle-Rental-System" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Online Vehicle Rental System<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/APS.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/MAD-project" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>APS - Android Application<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/Fashow.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/Customer_Management" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Online Gems & Jewelry Store<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/osgi.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/OSGI_ShoppingStore" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Shopping Store<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/ds.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/DS-Assignment-2" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Online Shopping System<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/icaf.jpeg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/ICAF---AF_Project" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>ICAF - Conference Tool<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/istockphoto-1202622457-1024x1024.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/GamithaManawadu/SPM-Marvel_Shopping_Store" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Marvel Shopping Store<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/512x512bb.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/UEE---mirrormirror.lk-" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Mirrormirror.lk<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/Screenshot 2022-03-31 202921.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/Jayamith/ctse_flutter_app" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>Life Saviour Battery App<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/Picture1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://github.com/SachinduG/EAD_FE" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+            <h5><br/>SmartFuel App<br/></h5>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Resume Section -->
-  <section id="resume" class="resume">
-    <div class="container">
-      <div class="section-title">
-        <h2>Resume</h2>
-        <a href="SachinduPathirawasamCV.pdf" class="resume-download" target="_blank">
-          <i class="fas fa-file-pdf"></i> Download Resume
-        </a>
+    </section><!-- End Portfolio Section -->
+    <!-- ======= Blog Section ======= -->
+    <section id="blogs" class="blogs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Blogs</h2>
+          <p>Let's share knowledge.</p>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <a href="https://sachindugimhana.medium.com/serverside-for-crud-using-mern-stack-c5ec995b34f9" title="More Details"><img src="assets/img/mern.jpg" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>Serverside for crud using MERN Stack<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <a href="https://sachindugimhana.medium.com/serverside-for-crud-using-mern-stack-part-2-2481c65e7f4d" title="More Details"><img src="assets/img/mern2.jpeg" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>Serverside for CRUD using MERN stack -Part 2<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <a href="https://sachindugimhana.medium.com/the-s-o-l-i-d-design-principles-845dadd731b6" title="More Details"><img src="assets/img/solid.png" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>SOLID design principles<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <br/><a href="https://sachindugimhana.medium.com/introduction-about-mongodb-238b48dd4553" title="More Details"><img src="assets/img/mongodb.png" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>Introduction about MongoDB<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <br/><a href="https://sachindugimhana.medium.com/react-vs-angular-9c05d01bae90" title="More Details"><img src="assets/img/react.png" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>A Comparison of React and Angular<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <br/><a href="https://sachindugimhana.medium.com/sql-vs-nosql-what-is-the-best-option-for-2021-162138ed1931" title="More Details"><img src="assets/img/sql.png" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>SQL vs NoSQL: What is the best option for 2021?<br/></h5>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="portfolio-wrap">
+              <div class="portfolio-links">
+                <br/><a href="https://sachindugimhana.medium.com/how-to-use-some-basic-spring-boot-annotations-2393977545e1" title="More Details"><img src="assets/img/spring.png" class="img-fluid" alt=""></a>
+              </div>
+            </div>
+            <h5><br/>How to use some Basic Spring Boot Annotations<br/></h5>
+          </div>
+        </div>
       </div>
-      <!-- Resume content remains the same -->
-    </div>
-  </section>
-
-  <!-- Other sections remain the same -->
-
-  </main>
-
+    </section><!-- End Blog Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+        <div class="row" data-aos="fade-in">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Kristinagatan 26A, lgh 1302, Norrköping 60232, Östergötland, Sweden</p>
+              </div>
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <a href="mailto:sachindugimhana0@gmail.com"><span class="icon icon-envelope"></span><span class="text">sachindugimhana0@gmail.com</span></a>
+              </div>
+              </br>
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <a href="tel:0762519803"><span class="icon icon-phone"></span><span class="text">+46 76 251 9803</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -807,55 +1130,35 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
   <script>
-    // Enhanced animation code
-    document.addEventListener('DOMContentLoaded', function() {
-      // Animate progress bars on scroll
-      const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '0px'
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            if (entry.target.classList.contains('skill-progress-bar')) {
-              const width = entry.target.getAttribute('data-width');
-              entry.target.style.width = width;
-            } else if (entry.target.classList.contains('circle-progress')) {
-              const percentage = parseInt(entry.target.getAttribute('data-percentage'));
-              const offset = 408 - (408 * percentage) / 100;
-              setTimeout(() => {
-                entry.target.style.strokeDashoffset = offset;
-              }, 300);
-            }
-          }
-        });
-      }, observerOptions);
-
-      // Observe linear progress bars
-      document.querySelectorAll('.skill-progress-bar').forEach(bar => {
-        observer.observe(bar);
+    // Animate progress bars on scroll
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('data-width') || entry.target.style.width;
+        }
       });
-
-      // Observe circular progress bars
-      document.querySelectorAll('.circle-progress').forEach(circle => {
-        observer.observe(circle);
-      });
-
-      // Initialize all progress bars to 0
-      document.querySelectorAll('.skill-progress-bar').forEach(bar => {
-        bar.style.width = '0%';
-      });
-
-      document.querySelectorAll('.circle-progress').forEach(circle => {
-        circle.style.strokeDashoffset = '408';
-      });
+    }, observerOptions);
+    document.querySelectorAll('.skill-progress-bar').forEach(bar => {
+      observer.observe(bar);
+    });
+    // Animate circular progress
+    document.querySelectorAll('.circle-progress').forEach(circle => {
+      const percentage = parseInt(circle.parentElement.parentElement.querySelector('.circle-percentage').textContent);
+      const offset = 408 - (408 * percentage) / 100;
+     
+      setTimeout(() => {
+        circle.style.strokeDashoffset = offset;
+      }, 500);
     });
   </script>
-
+         
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+ 
