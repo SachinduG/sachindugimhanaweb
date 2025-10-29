@@ -3,32 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sachindu Gimahana</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/as.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon.png">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
   <style>
-    .justified-text { text-align: justify; }
-
-    /* Skills Section */
+    .justified-text {
+      text-align: justify;
+    }
     .skills.section-bg {
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       padding: 80px 0;
@@ -52,9 +30,11 @@
       background: linear-gradient(90deg, #667eea, #764ba2);
       border-radius: 2px;
     }
-    .section-title { text-align: center; margin-bottom: 50px; }
-
-    /* Skills Grid */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    /* Modern Skills Grid */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -73,8 +53,10 @@
     .skill-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 4px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
       background: linear-gradient(90deg, #667eea, #764ba2);
       transform: scaleX(0);
       transform-origin: left;
@@ -84,8 +66,9 @@
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
     }
-    .skill-card:hover::before { transform: scaleX(1); }
-
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
     .skill-header {
       display: flex;
       align-items: center;
@@ -101,7 +84,8 @@
       gap: 12px;
     }
     .skill-icon {
-      width: 45px; height: 45px;
+      width: 45px;
+      height: 45px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border-radius: 12px;
       display: flex;
@@ -130,14 +114,18 @@
       height: 100%;
       background: linear-gradient(90deg, #667eea, #764ba2);
       border-radius: 10px;
-      width: 0%;
+      position: relative;
       transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+      width: 0% !important; /* Start at 0 */
     }
     .skill-progress-bar::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
       animation: shimmer 2s infinite;
     }
@@ -145,18 +133,33 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
-
-    /* Circular Progress */
+    /* Circular Progress for Featured Skills */
     .featured-skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 40px;
       margin-bottom: 60px;
     }
-    .featured-skill { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-    .circular-progress { position: relative; width: 140px; height: 140px; }
-    .circular-progress svg { transform: rotate(-90deg); filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3)); }
-    .circle-bg { fill: none; stroke: #e8ecf1; stroke-width: 10; }
+    .featured-skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .circular-progress {
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+    .circular-progress svg {
+      transform: rotate(-90deg);
+      filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3));
+    }
+    .circle-bg {
+      fill: none;
+      stroke: #e8ecf1;
+      stroke-width: 10;
+    }
     .circle-progress {
       fill: none;
       stroke-width: 10;
@@ -167,7 +170,8 @@
     }
     .circle-text {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
     }
@@ -175,14 +179,15 @@
       font-size: 1.8rem;
       font-weight: 700;
       color: #2c3e50;
+      display: block;
     }
     .circle-label {
       font-size: 0.85rem;
       color: #7f8c8d;
       font-weight: 600;
+      text-align: center;
       margin-top: 5px;
     }
-
     /* Database Section */
     .database-section {
       background: white;
@@ -208,14 +213,40 @@
       position: relative;
       overflow: hidden;
     }
+    .database-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
     .database-card:hover {
       transform: scale(1.05) rotate(2deg);
       box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
     }
-    .database-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
-    .database-name { font-size: 1.3rem; font-weight: 700; }
-
-    /* Certificate Card */
+    .database-card:hover::before {
+      opacity: 1;
+    }
+    .database-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+      object-fit: contain;
+    }
+    .database-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    /* Certificate Card Enhancement */
     .certificate-card {
       background: white;
       border-radius: 20px;
@@ -257,24 +288,29 @@
       color: #667eea;
       text-decoration: none;
       font-weight: 600;
+      transition: all 0.3s ease;
       padding: 10px 20px;
       border: 2px solid #667eea;
       border-radius: 25px;
       justify-content: center;
-      transition: all 0.3s ease;
     }
     .details-link:hover {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       transform: translateX(5px);
     }
-
     /* Animation */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .skill-card, .featured-skill, .database-card, .certificate-card {
+    .skill-card, .featured-skill, .database-card {
       animation: fadeInUp 0.6s ease forwards;
       opacity: 0;
     }
@@ -284,23 +320,69 @@
     .skill-card:nth-child(4) { animation-delay: 0.4s; }
     .skill-card:nth-child(5) { animation-delay: 0.5s; }
     .skill-card:nth-child(6) { animation-delay: 0.6s; }
-
+    /* Resume Download Link */
+    .resume-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 12px 24px;
+      border: 2px solid #667eea;
+      border-radius: 25px;
+      margin-top: 20px;
+    }
+    .resume-download:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+    }
     /* Responsive */
     @media (max-width: 768px) {
-      .skills-grid, .featured-skills, .database-grid { grid-template-columns: 1fr; }
-      .database-section { padding: 30px 20px; }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .featured-skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .database-grid {
+        grid-template-columns: 1fr;
+      }
+      .database-section {
+        padding: 30px 20px;
+      }
     }
   </style>
+  <title>Sachindu Gimahana</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/as.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon.png">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <!-- Mobile nav toggle -->
+  <!-- ======= Mobile nav toggle button ======= -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- Header -->
+  <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img.png" alt="Sachindu Gimahana Profile Picture" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Sachindu Gimahana</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="https://www.linkedin.com/in/sachindupathirawasam/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
@@ -319,21 +401,20 @@
           <li><a href="#blogs" class="nav-link scrollto"><i class="bx bxl-blogger"></i> <span>Blogs</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
-      </nav>
+      </nav><!-- .nav-menu -->
     </div>
-  </header>
+  </header><!-- End Header -->
 
-  <!-- Hero Section -->
+  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Sachindu Gimhana</h1>
       <p>I'm <span class="typed" data-typed-items="RPA Developer, Power platform Developer, Web Developer, Android Developer"></span></p>
     </div>
-  </section>
+  </section><!-- End Hero -->
 
   <main id="main">
-
-    <!-- About Section -->
+    <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
         <div class="section-title">
@@ -344,7 +425,7 @@
         </div>
         <div class="row">
           <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Sachindu Gimahana">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
             <h3>RPA Developer</h3>
@@ -362,106 +443,419 @@
                 </ul>
               </div>
             </div>
+            <br>
+            <br>
           </div>
         </div>
       </div>
-    </section>
+    </section><!-- End About Section -->
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
+   <!-- Enhanced Skills Section -->
+  <section id="skills" class="skills section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Expertise across various technologies and platforms</p>
+      </div>
+
+      <!-- Featured Skills with Circular Progress -->
+      <div class="featured-skills">
+        <div class="featured-skill">
+          <div class="circular-progress">
+            <svg width="140" height="140">
+              <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65" 
+                style="stroke: url(#gradient1);" data-percentage="80"></circle>
+              <defs>
+                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="circle-text">
+              <span class="circle-percentage">80%</span>
+            </div>
+          </div>
+          <span class="circle-label">UiPath</span>
+        </div>
+
+        <div class="featured-skill">
+          <div class="circular-progress">
+            <svg width="140" height="140">
+              <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65" 
+                style="stroke: url(#gradient2);" data-percentage="80"></circle>
+              <defs>
+                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="circle-text">
+              <span class="circle-percentage">80%</span>
+            </div>
+          </div>
+          <span class="circle-label">Power Automate</span>
+        </div>
+
+        <div class="featured-skill">
+          <div class="circular-progress">
+            <svg width="140" height="140">
+              <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65" 
+                style="stroke: url(#gradient3);" data-percentage="75"></circle>
+              <defs>
+                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="circle-text">
+              <span class="circle-percentage">75%</span>
+            </div>
+          </div>
+          <span class="circle-label">HTML5</span>
+        </div>
+
+        <div class="featured-skill">
+          <div class="circular-progress">
+            <svg width="140" height="140">
+              <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
+              <circle class="circle-progress" cx="70" cy="70" r="65" 
+                style="stroke: url(#gradient4);" data-percentage="75"></circle>
+              <defs>
+                <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="circle-text">
+              <span class="circle-percentage">75%</span>
+            </div>
+          </div>
+          <span class="circle-label">Java</span>
+        </div>
+      </div>
+
+      <!-- All Skills Grid -->
+      <div class="skills-grid">
+        <!-- Skill cards remain the same but with data-width attributes -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">💻</span>
+              CSS3
+            </div>
+            <span class="skill-percentage">75%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="75%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🚀</span>
+              JavaScript
+            </div>
+            <span class="skill-percentage">50%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="50%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🔷</span>
+              C++
+            </div>
+            <span class="skill-percentage">70%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="70%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">⚛️</span>
+              React JS
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">📱</span>
+              Kotlin
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">📊</span>
+              R
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🔧</span>
+              PHP
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🔵</span>
+              C
+            </div>
+            <span class="skill-percentage">75%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="75%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🐍</span>
+              Python
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🟢</span>
+              Node JS
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="60%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🦋</span>
+              Flutter
+            </div>
+            <span class="skill-percentage">50%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="50%"></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-name">
+              <span class="skill-icon">🎯</span>
+              C#
+            </div>
+            <span class="skill-percentage">50%</span>
+          </div>
+          <div class="skill-progress-wrapper">
+            <div class="skill-progress-bar" data-width="50%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database Section -->
+      <div class="database-section">
         <div class="section-title">
-          <h2>Technical Skills</h2>
-          <p>Expertise across various technologies and platforms</p>
+          <h2>Databases</h2>
+          <p>Database technologies I work with</p>
         </div>
+        <div class="database-grid">
+          <div class="database-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiM0REJBNDYiLz4KPHBhdGggZD0iTTMyIDM4LjY2NjdDNDAuODIgMzguNjY2NyA0Ny44IDMxLjY4NjcgNDcuOCAyMi44NjY3QzQ3LjggMTQuMDQ2NyA0MC44MiA3LjA2NjY3IDMyIDcuMDY2NjdDMjMuMTggNy4wNjY2NyAxNi4yIDE0LjA0NjcgMTYuMiAyMi44NjY3QzE2LjIgMzEuNjg2NyAyMy4xOCAzOC42NjY3IDMyIDM4LjY2NjdaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNDcuOCAyMi44NjY3SDQ0LjZDMzkuNjIgMzEuMDI2NyAzNi4zMiAzOC42NjY3IDMyIDM4LjY2NjdDMjcuNjggMzguNjY2NyAyNC4zOCAzMS4wMjY3IDE5LjQgMjIuODY2N0gxNi4yQzE2LjIgMzEuNjg2NyAyMy4xOCAzOC42NjY3IDMyIDM4LjY2NjdDNDAuODIgMzguNjY2NyA0Ny44IDMxLjY4NjcgNDcuOCAyMi44NjY3WiIgZmlsbD0iIzREQkE0NiIvPgo8L3N2Zz4K" alt="MongoDB" class="database-icon">
+            <div class="database-name">MongoDB</div>
+          </div>
 
-        <!-- Featured Skills -->
-        <div class="featured-skills">
-          <div class="featured-skill">
-            <div class="circular-progress">
-              <svg width="140" height="140">
-                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-                <circle class="circle-progress" cx="70" cy="70" r="65" style="stroke: url(#gradient1);"></circle>
-                <defs>
-                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#667eea"/>
-                    <stop offset="100%" stop-color="#764ba2"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="circle-text">
-                <span class="circle-percentage">80%</span>
-              </div>
-            </div>
-            <span class="circle-label">UiPath</span>
+          <div class="database-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTZIMjRWNDBIMFYxNloiIGZpbGw9IiNGRjdCMDAiLz4KPHBhdGggZD0iTTI0IDE2SDQ4VjQwSDI0VjE2WiIgZmlsbD0iIzAwOTZENTIiLz4KPHBhdGggZD0iTTAgNDBIMjRWNjRIMFY0MFoiIGZpbGw9IiNGRjc0QjYiLz4KPHBhdGggZD0iTTI0IDQwSDQ4VjY0SDI0VjQwWiIgZmlsbD0iIzVFQzNFRCIvPgo8L3N2Zz4K" alt="Firebase" class="database-icon">
+            <div class="database-name">Firebase</div>
           </div>
-          <div class="featured-skill">
-            <div class="circular-progress">
-              <svg width="140" height="140">
-                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-                <circle class="circle-progress" cx="70" cy="70" r="65" style="stroke: url(#gradient2);"></circle>
-                <defs>
-                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#f093fb"/>
-                    <stop offset="100%" stop-color="#f5576c"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="circle-text">
-                <span class="circle-percentage">80%</span>
-              </div>
-            </div>
-            <span class="circle-label">Power Automate</span>
+
+          <div class="database-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiMwMDk2RDUyIi8+CjxwYXRoIGQ9Ik0zMiAxMkM0My4wNDU3IDEyIDUyIDIwLjk1NDMgNTIgMzJDNTIgNDMuMDQ1NyA0My4wNDU3IDUyIDMyIDUyQzIwLjk1NDMgNTIgMTIgNDMuMDQ1NyAxMiAzMkMxMiAyMC45NTQzIDIwLjk1NDMgMTIgMzIgMTJaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMzIgMTZDNDEuODggMTYgNTAgMjQuMTIgNTAgMzRDNTAgNDMuODggNDEuODggNTIgMzIgNTJDMjIuMTIgNTIgMTQgNDMuODggMTQgMzRDMTQgMjQuMTIgMjIuMTIgMTYgMzIgMTZaIiBmaWxsPSIjMDA5NkQ1MiIvPgo8cGF0aCBkPSJNMzIgMjBDMzkuNzMyIDIwIDQ2IDI2LjI2OCA0NiAzNEM0NiA0MS43MzIgMzkuNzMyIDQ4IDMyIDQ4QzI0LjI2OCA0OCAxOCA0MS43MzIgMTggMzRDMTggMjYuMjY4IDI0LjI2OCAyMCAzMiAyMFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=" alt="MySQL" class="database-icon">
+            <div class="database-name">MySQL</div>
           </div>
-          <div class="featured-skill">
-            <div class="circular-progress">
-              <svg width="140" height="140">
-                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-                <circle class="circle-progress" cx="70" cy="70" r="65" style="stroke: url(#gradient3);"></circle>
-                <defs>
-                  <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#4facfe"/>
-                    <stop offset="100%" stop-color="#00f2fe"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="circle-text">
-                <span class="circle-percentage">75%</span>
-              </div>
-            </div>
-            <span class="circle-label">HTML5</span>
+
+          <div class="database-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTZIMjRWNDBIMFYxNloiIGZpbGw9IiNENzIyMTYiLz4KPHBhdGggZD0iTTI0IDE2SDQ4VjQwSDI0VjE2WiIgZmlsbD0iIzAwOTZENTIiLz4KPHBhdGggZD0iTTAgNDBIMjRWNjRIMFY0MFoiIGZpbGw9IiMwMDk2RDUyIi8+CjxwYXRoIGQ9Ik0yNCA0MEg0OFY2NEgyNFY0MFoiIGZpbGw9IiNENzIyMTYiLz4KPC9zdmc+Cg==" alt="MS SQL Server" class="database-icon">
+            <div class="database-name">MS SQL Server</div>
           </div>
-          <div class="featured-skill">
-            <div class="circular-progress">
-              <svg width="140" height="140">
-                <circle class="circle-bg" cx="70" cy="70" r="65"></circle>
-                <circle class="circle-progress" cx="70" cy="70" r="65" style="stroke: url(#gradient4);"></circle>
-                <defs>
-                  <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#43e97b"/>
-                    <stop offset="100%" stop-color="#38f9d7"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div class="circle-text">
-                <span class="circle-percentage">75%</span>
-              </div>
-            </div>
-            <span class="circle-label">Java</span>
+
+          <div class="database-card">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMyIDY0QzE0LjMyNjkgNjQgMCA0OS42NzMxIDAgMzJDMCAxNC4zMjY5IDE0LjMyNjkgMCAzMiAwQzQ5LjY3MzEgMCA2NCAxNC4zMjY5IDY0IDMyQzY0IDQ5LjY3MzEgNDkuNjczMSA2NCAzMiA2NFoiIGZpbGw9IiNDNzQxMUEiLz4KPHBhdGggZD0iTTMyIDEyQzQzLjA0NTcgMTIgNTIgMjAuOTU0MyA1MiAzMkM1MiA0My4wNDU3IDQzLjA0NTcgNTIgMzIgNTJDMjAuOTU0MyA1MiAxMiA0My4wNDU3IDEyIDMyQzEyIDIwLjk1NDMgMjAuOTU0MyAxMiAzMiAxMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0zMiAxNkM0MS44OCAxNiA1MCAyNC4xMiA1MCAzNEM1MCA0My44OCA0MS44OCA1MiAzMiA1MkMyMi4xMiA1MiAxNCA0My44OCAxNCAzNEMxNCAyNC4xMiAyMi4xMiAxNiAzMiAxNloiIGZpbGw9IiNDNzQxMUEiLz4KPHBhdGggZD0iTTMyIDIwQzM5LjczMiAyMCA0NiAyNi4yNjggNDYgMzRDNDYgNDEuNzMyIDM5LjczMiA0OCAzMiA0OEMyNC4yNjggNDggMTggNDEuNzMyIDE4IDM0QzE4IDI2LjI2OCAyNC4yNjggMjAgMzIgMjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K" alt="Oracle" class="database-icon">
+            <div class="database-name">Oracle</div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Skills Grid -->
-        <div class="skills-grid">
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-name"><span class="skill-icon">CSS3</span></div>
-              <span class="skill-percentage">75%</span>
-            </div>
-            <div class="skill-progress-wrapper">
-              <div class="skill-progress-bar" data-width="75%"></div>
+  <!-- Certificates Section -->
+  <section id="certificates" class="portfolio section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Certificates</h2>
+        <p>Here are some of the professional certifications I've earned from Microsoft, IBM, UiPath, and other platforms.</p>
+      </div>
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Certificate Cards - Make sure your images exist in assets/img/ -->
+        <div class="col-lg-4 col-md-6 portfolio-item">
+          <div class="certificate-card">
+            <img src="assets/img/UIPathAI.png" class="img-fluid" alt="UiPath AI Associate Certificate">
+            <div class="certificate-info">
+              <h4>UiPath Academy Specialized AI Associate Training</h4>
+              <a href="https://credentials.uipath.com/e3f052d5-29d3-4334-a957-a23d569e7412#acc.fXVCaHqs" target="_blank" class="details-link">
+                <i class="bx bx-link"></i> View Certificate
+              </a>
             </div>
           </div>
-          <div class="skill-card">
-            <div class="skill-header">
-              <div class="skill-name"><span class="skill-icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAHTElEQVR4nO2dbWxb5RmGr+e1TZJ2tBrawpYlcUI7Oug00arSxpowO1m/GHXCVto/sD9M++i6FjGxT1AjNqQxaSoTFBDi34omdYLGBALNaGzSFm1joEoTqTalS5x0H4xttB2Fhtjn2Y8kXeR2tOfDPuXNuST/iu7nvZXLPvY5Oq8NERERERERERERERERERERERER7w/EbaC5L9WGsroSZfwwnsnf7yXXkkvVOidkuQjLxEi9g1Mz/Rd5MyYyZkrFo8e6hyaC7PpexN0GjGM+r+jOSpTxyUULady77op4zdQWRTfpKT4rhloAVUXmPEcdVRyJkcymR1GeA3mi0D34UgW6n8W1kPczTdk1DTEpflf13a8oLHARbUXYCro1mU2/isqPC92D+yrR0VRi6CVHT49pzqZ2GIpHVdmOOxnlrET0qWRv+oXGbGppUBVnsV5IQ1/qQ80rXuwX5AFgUWCDhc4Y8kpLb2pLYDOxXEhTdk1DoiQ5gXUVWmKRivyyJdvRE9RAa4UseWptvVDKI3yywkuJojuT2fRdQQyzUkjj3uvrirGp/YJ+vIrL3t+c7bjF7xArhZja2l3AdVVeVgR9vGlfxxI/Q6wT0tTb2S7KV0NaflHMOI/4GWCXEEWMOA/h4QpEgBXWNGXTGa95q4S09KUzwKfC7mHgHh9Zi1D9ZtgVZljV0pv+tJegNUKasmsaFOkIu8csKtzmJWeNkBhTa4BY2D3m4Olk1BohitwQdocyljb2dXzMbcgaIcC1YRcox5Sca1xnKlEkJFrDLnAORq5yHalEj5AI7kpuQIiy2G3GJiGJsAucg+plbiM2CTkddoFyFPmP24w1QhT5R9gdyjGirjtZI0Tgj2F3KEdxXHeyScgrYXco4+1EYuGw25A1QkoqB8LuMBdBD4/c+Nyk25w1QiaOtB8GjofdYxYH8ysvOWuE0NPjqOiesGvMcNo4zjwXApgYPwfeC
+        </div>
+        <!-- Add other certificate cards similarly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Paper Section -->
+  <section class="about">
+    <div class="container">
+      <div class="row skills-content">
+        <div class="col-lg-12" data-aos="fade-up">
+          <div class="section-title">
+            <h5>Research Paper Publication</h5>
+          </div>
+          <div class="progress">
+            <span class="skill">
+              <i class="fas fa-file-alt"></i>
+              <a href="https://ieeexplore.ieee.org/document/9965696">Intelligent System for Skin Disease Detection of Dogs with Ontology Based Clinical Information Extraction</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="resume">
+    <div class="container">
+      <div class="section-title">
+        <h2>Resume</h2>
+        <a href="SachinduPathirawasamCV.pdf" class="resume-download" target="_blank">
+          <i class="fas fa-file-pdf"></i> Download Resume
+        </a>
+      </div>
+      <!-- Resume content remains the same -->
+    </div>
+  </section>
+
+  <!-- Other sections remain the same -->
+
+  </main>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <script>
+    // Enhanced animation code
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animate progress bars on scroll
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains('skill-progress-bar')) {
+              const width = entry.target.getAttribute('data-width');
+              entry.target.style.width = width;
+            } else if (entry.target.classList.contains('circle-progress')) {
+              const percentage = parseInt(entry.target.getAttribute('data-percentage'));
+              const offset = 408 - (408 * percentage) / 100;
+              setTimeout(() => {
+                entry.target.style.strokeDashoffset = offset;
+              }, 300);
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Observe linear progress bars
+      document.querySelectorAll('.skill-progress-bar').forEach(bar => {
+        observer.observe(bar);
+      });
+
+      // Observe circular progress bars
+      document.querySelectorAll('.circle-progress').forEach(circle => {
+        observer.observe(circle);
+      });
+
+      // Initialize all progress bars to 0
+      document.querySelectorAll('.skill-progress-bar').forEach(bar => {
+        bar.style.width = '0%';
+      });
+
+      document.querySelectorAll('.circle-progress').forEach(circle => {
+        circle.style.strokeDashoffset = '408';
+      });
+    });
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
