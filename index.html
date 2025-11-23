@@ -1,594 +1,702 @@
+Here is the **complete, unified, and fixed code** for your modern portfolio.
+
+I have merged all the separate sections we designed into one cohesive file. I also fixed the "Frankenstein" issues:
+
+1.  **Global Dark Mode:** Enforced via CSS.
+2.  **Missing Icons:** Added FontAwesome, Devicon, and RemixIcon CDNs.
+3.  **Broken Navigation:** Added a custom Vanilla JS Scrollspy and Mobile Toggle script.
+4.  **Animations:** Integrated AOS (Animate On Scroll) library.
+
+### Instructions:
+
+1.  Create a file named `index.html`.
+2.  Paste the code below into it.
+3.  Ensure your images are in an `assets/img/` folder (or update the `src` paths).
+4.  **Launch it.**
+
+<!-- end list -->
+
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sachindu Gimahana</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/as.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <title>Sachindu Gimhana | RPA Developer & Data Scientist</title>
+  <meta content="Portfolio of Sachindu Gimhana, specializing in RPA, Data Science, and Full Stack Development." name="description">
   
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    /* ==========================================
+       1. GLOBAL DARK THEME & RESET
+       ========================================== */
+    :root {
+      --bg-dark: #0f172a;      /* Main Background */
+      --bg-card: #1e293b;      /* Card Background */
+      --primary: #667eea;      /* Primary Accent */
+      --secondary: #764ba2;    /* Secondary Accent */
+      --text-main: #ffffff;    /* Main Text */
+      --text-muted: #94a3b8;   /* Muted Text */
+      --border: #334155;       /* Borders */
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    h1, h2, h3, h4, h5 { color: var(--text-main); margin: 0; }
+
+    /* Layout Utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 50px;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================
+       2. SIDEBAR NAVIGATION
+       ========================================== */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      transition: all 0.5s;
+      z-index: 9997;
+      padding: 0 15px;
+      background: #020617;
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Mobile Toggle */
+    .mobile-nav-toggle {
+      position: fixed;
+      right: 15px;
+      top: 15px;
+      z-index: 9998;
+      border: 0;
+      font-size: 24px;
+      background-color: var(--primary);
+      color: #fff;
+      width: 45px;
+      height: 45px;
+      display: flex; /* Flex to center icon */
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none; /* Hidden on desktop */
+    }
+
+    @media (max-width: 1199px) {
+      .mobile-nav-toggle { display: flex; }
+      #header { left: -300px; }
+      body.mobile-nav-active #header { left: 0; }
+      #main { margin-left: 0 !important; }
+    }
+
+    #main {
+      margin-left: 300px;
+      transition: margin-left 0.5s;
+    }
+
+    /* Profile Area */
+    .profile { text-align: center; margin: 30px 0; }
+    .profile-img-wrapper {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px auto;
+      padding: 5px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      transition: border-color 0.3s;
+    }
+    .profile:hover .profile-img-wrapper { border-color: var(--primary); }
+    .profile img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .profile h1 { font-size: 24px; font-weight: 700; }
+    .profile h1 a:hover { color: var(--primary); }
+
+    .social-links { margin-top: 15px; display: flex; justify-content: center; gap: 10px; }
+    .social-icon {
+      font-size: 18px;
+      background: var(--bg-card);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .social-icon:hover { background: var(--primary); transform: translateY(-3px); }
+
+    /* Nav Menu */
+    .nav-menu { padding: 20px 0; flex-grow: 1; }
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      color: var(--text-muted);
+      padding: 12px 15px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      border-radius: 8px;
+    }
+    .nav-menu a i { font-size: 20px; padding-right: 12px; color: #64748b; }
+    .nav-menu a:hover, .nav-menu a.active {
+      color: #fff;
+      background: rgba(102, 126, 234, 0.1);
+    }
+    .nav-menu a:hover i, .nav-menu a.active i { color: var(--primary); }
+
+    .sidebar-footer { text-align: center; font-size: 12px; color: #475569; padding-bottom: 20px; }
+
+    /* ==========================================
+       3. HERO SECTION
+       ========================================== */
+    .hero-modern {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content { z-index: 2; position: relative; }
+    .hero-greeting { color: var(--primary); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .hero-modern h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+      background: linear-gradient(to right, #fff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .hero-modern h2 { font-size: 1.8rem; font-weight: 400; color: var(--text-muted); margin-bottom: 20px; }
+    .highlight { color: #fff; font-weight: 700; position: relative; display: inline-block; }
+    .highlight::after {
+      content: ''; position: absolute; width: 100%; height: 6px; bottom: 5px; left: 0;
+      background: rgba(102, 126, 234, 0.3); z-index: -1; transform: skewX(-15deg);
+    }
+    .hero-description { max-width: 600px; margin: 0 auto 40px; color: #cbd5e1; line-height: 1.6; }
+
+    .hero-buttons { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; }
+    .btn-primary-hero {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white; border-radius: 50px; font-weight: 600;
+      box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+    }
+    .btn-primary-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(118, 75, 162, 0.5); }
+    
+    .btn-secondary-hero {
+      padding: 12px 30px;
+      background: transparent; border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; border-radius: 50px; font-weight: 600;
+    }
+    .btn-secondary-hero:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+    /* Animated Shapes */
+    .hero-shapes { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+    .shape { position: absolute; filter: blur(80px); opacity: 0.5; animation: float 10s infinite ease-in-out; }
+    .shape-1 { width: 400px; height: 400px; background: var(--secondary); top: -100px; left: -100px; border-radius: 40% 60% 70% 30%; }
+    .shape-2 { width: 300px; height: 300px; background: var(--primary); bottom: -50px; right: -50px; border-radius: 60% 40% 30% 70%; animation-delay: -5s; }
+
+    @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, 50px); } }
+
+    /* ==========================================
+       4. ABOUT SECTION
+       ========================================== */
+    .about-card {
+      display: flex;
+      background: var(--bg-card);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .image-wrapper { flex: 0 0 40%; min-height: 400px; position: relative; }
+    .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .about-content { padding: 50px; flex: 1; }
+    .subtitle { color: var(--primary); text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; }
+    .about-content h2 { font-size: 2.5rem; font-weight: 700; margin: 15px 0 25px; line-height: 1.2; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--border); }
+    .info-item .label { color: #64748b; font-size: 0.8rem; text-transform: uppercase; display: block; margin-bottom: 5px; }
+    .info-item .value { font-weight: 600; font-size: 1rem; }
+
+    @media (max-width: 991px) { .about-card { flex-direction: column; } .image-wrapper { height: 300px; } }
+
+    /* ==========================================
+       5. SKILLS SECTION
+       ========================================== */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .tech-category { background: var(--bg-card); padding: 30px; border-radius: 16px; border: 1px solid var(--border); transition: 0.3s; }
+    .tech-category:hover { transform: translateY(-5px); border-color: var(--primary); }
+    .tech-category h3 { font-size: 1.25rem; margin-bottom: 20px; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+    .tech-category h3 i { color: var(--primary); }
+    .pill-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tech-pill {
+      background: var(--border); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem;
+      display: flex; align-items: center; gap: 8px; color: #fff;
+    }
+    .tech-pill.highlight { background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; }
+
+    /* ==========================================
+       6. RESUME SECTION
+       ========================================== */
+    .resume-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .resume-column .column-title { font-size: 1.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+    .resume-column .column-title i { color: var(--primary); }
+    .timeline-wrapper { border-left: 2px solid var(--border); padding-left: 30px; }
+    .timeline-item { position: relative; margin-bottom: 40px; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -39px; top: 5px; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--bg-dark); border: 2px solid var(--primary);
+    }
+    .timeline-date { background: var(--bg-card); padding: 4px 12px; border-radius: 4px; font-size: 0.85rem; color: var(--text-muted); display: inline-block; margin-bottom: 10px; }
+    .timeline-company { color: var(--primary); font-style: italic; display: block; margin-bottom: 10px; }
+    .timeline-content ul { padding-left: 20px; color: #cbd5e1; list-style: disc; }
+
+    @media (max-width: 768px) { .resume-grid { grid-template-columns: 1fr; } }
+
+    /* ==========================================
+       7. PROJECTS SECTION
+       ========================================== */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+    .project-card {
+      background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+      transition: 0.3s; display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+    .card-image { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+    .card-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .project-card:hover img { transform: scale(1.1); }
+    .card-overlay {
+      position: absolute; inset: 0; background: rgba(15, 23, 42, 0.8);
+      display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s;
+    }
+    .project-card:hover .card-overlay { opacity: 1; }
+    .view-btn {
+      background: var(--primary); color: white; padding: 8px 20px; border-radius: 50px;
+      display: flex; align-items: center; gap: 8px; transform: translateY(20px); transition: 0.3s;
+    }
+    .project-card:hover .view-btn { transform: translateY(0); }
+    .card-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+    .card-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; flex-grow: 1; margin-bottom: 20px; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-tags span { background: var(--border); font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; color: #cbd5e1; }
+
+    /* ==========================================
+       8. CERTIFICATES SECTION
+       ========================================== */
+    .cert-category-title { color: var(--primary); margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: inline-block; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .cert-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+      display: flex; align-items: center; gap: 15px; transition: 0.3s;
+    }
+    .cert-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .cert-logo {
+      width: 50px; height: 50px; background: #fff; border-radius: 50%; padding: 5px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cert-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .cert-content h4 { font-size: 0.95rem; margin-bottom: 5px; line-height: 1.3; }
+    .issuer { font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .cert-link { font-size: 0.75rem; color: var(--primary); display: flex; align-items: center; gap: 4px; }
+
+    /* ==========================================
+       9. BLOGS & CONTACT
+       ========================================== */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .blog-card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+    .blog-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+    .blog-img-wrapper { height: 180px; position: relative; }
+    .blog-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+    .read-link { color: var(--primary); margin-top: auto; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+
+    .contact-wrapper { text-align: center; max-width: 900px; margin: 0 auto; }
+    .contact-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+    .contact-card {
+      background: var(--bg-card); padding: 20px 30px; border-radius: 16px; border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 15px; min-width: 250px; text-align: left;
+    }
+    .contact-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .icon-box { background: rgba(102, 126, 234, 0.1); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; }
+  </style>
 </head>
+
 <body>
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-<header id="header" class="header-modern">
-  <div class="d-flex flex-column">
+  <div class="mobile-nav-toggle">
+    <i class="bi bi-list"></i>
+  </div>
 
+  <header id="header">
     <div class="profile">
       <div class="profile-img-wrapper">
-        <img src="assets/img/profile-img.png" alt="Sachindu Gimhana" class="img-fluid rounded-circle">
+        <img src="assets/img/profile-img.png" alt="Profile" class="img-fluid">
       </div>
-      <h1 class="text-light"><a href="index.html">Sachindu Gimhana</a></h1>
-      
-      <div class="social-links mt-3 text-center">
-        <a href="https://www.linkedin.com/in/sachindupathirawasam/" class="social-icon" target="_blank"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/SachinduG" class="social-icon" target="_blank"><i class="bx bxl-github"></i></a>
-        <a href="https://sachindugimhana.medium.com/" class="social-icon" target="_blank"><i class="bx bxl-medium"></i></a>
+      <h1><a href="index.html">Sachindu Gimhana</a></h1>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/sachindupathirawasam/" target="_blank" class="social-icon"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/SachinduG" target="_blank" class="social-icon"><i class="bx bxl-github"></i></a>
+        <a href="https://sachindugimhana.medium.com/" target="_blank" class="social-icon"><i class="bx bxl-medium"></i></a>
       </div>
     </div>
 
-    <nav id="navbar" class="nav-menu navbar">
+    <nav id="navbar" class="nav-menu">
       <ul>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Tech Stack</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-code-alt"></i> <span>Projects</span></a></li>
-        <li><a href="#certificates" class="nav-link scrollto"><i class="bx bx-certification"></i> <span>Certificates</span></a></li>
-        <li><a href="#blogs" class="nav-link scrollto"><i class="bx bxl-blogger"></i> <span>Articles</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        <li><a href="#hero" class="nav-link active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#about" class="nav-link"><i class="bx bx-user"></i> <span>About</span></a></li>
+        <li><a href="#skills" class="nav-link"><i class="bx bx-server"></i> <span>Tech Stack</span></a></li>
+        <li><a href="#resume" class="nav-link"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+        <li><a href="#portfolio" class="nav-link"><i class="bx bx-code-alt"></i> <span>Projects</span></a></li>
+        <li><a href="#certificates" class="nav-link"><i class="bx bx-certification"></i> <span>Certificates</span></a></li>
+        <li><a href="#blogs" class="nav-link"><i class="bx bxl-blogger"></i> <span>Articles</span></a></li>
+        <li><a href="#contact" class="nav-link"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
       </ul>
     </nav>
-    
     <div class="sidebar-footer">
-      <p>&copy; 2025 Sachindu G.</p>
+      &copy; 2025 Sachindu G.
     </div>
+  </header>
 
-  </div>
-</header>
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Sachindu Gimhana</h1>
-      <p>I'm <span class="typed" data-typed-items="RPA Developer, Power platform Developer, Web Developer, Android Developer"></span></p>
-    </div>
-  </section><main id="main">
-  <section id="about" class="about-modern">
-  <div class="container">
-    <div class="about-card">
-      
-      <div class="image-wrapper">
-        <img src="assets/img/profile-img.jpg" alt="Pathirawasam Sachindu Gimahana" class="profile-pic">
-        <div class="image-overlay"></div>
+  <main id="main">
+
+    <section id="hero" class="hero-modern">
+      <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
       </div>
+      <div class="container hero-content" data-aos="fade-up">
+        <p class="hero-greeting">Hello, I am</p>
+        <h1>Sachindu Gimhana</h1>
+        <h2><span class="highlight">RPA Developer</span> & <span class="highlight">Data Scientist</span></h2>
+        <p class="hero-description">Master's student at Linköping University. I build intelligent automation systems that bridge the gap between complex data and user-friendly design.</p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn-primary-hero">View My Work</a>
+          <a href="#contact" class="btn-secondary-hero">Contact Me</a>
+        </div>
+      </div>
+    </section>
 
-      <div class="about-content">
-        <span class="subtitle">About Me</span>
-        <h2>RPA Developer & <br><span>Data Scientist</span></h2>
-        
-        <p class="bio-text">
-          I am <strong>Pathirawasam Sachindu Gimahana</strong>, a Master's student at Linköping University bridging the gap between automation and social science. 
-          <br><br>
-          With 2+ years of experience in <strong>UiPath</strong> and <strong>Power Automate</strong>, I build efficient workflows that save time and reduce error. My passion lies in combining robust backend logic with intuitive user-centered design.
-        </p>
-
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="label">Location</span>
-            <span class="value">Norrköping, Sweden</span>
+    <section id="about" class="about-modern">
+      <div class="container" data-aos="fade-up">
+        <div class="about-card">
+          <div class="image-wrapper">
+            <img src="assets/img/profile-img.jpg" alt="Profile">
           </div>
-          <div class="info-item">
-            <span class="label">Education</span>
-            <span class="value">MSc Computational Social Science</span>
-          </div>
-          <div class="info-item">
-            <span class="label">Focus</span>
-            <span class="value">RPA, Web & Android</span>
+          <div class="about-content">
+            <span class="subtitle">About Me</span>
+            <h2>RPA Developer & <br><span>Data Scientist</span></h2>
+            <p class="bio-text">I am <strong>Pathirawasam Sachindu Gimahana</strong>, a Master's student at Linköping University bridging the gap between automation and social science. With 2+ years of experience in <strong>UiPath</strong> and <strong>Power Automate</strong>, I build efficient workflows that save time and reduce error.</p>
+            <div class="info-grid">
+              <div class="info-item"><span class="label">Location</span><span class="value">Norrköping, Sweden</span></div>
+              <div class="info-item"><span class="label">Education</span><span class="value">MSc Comp. Social Science</span></div>
+              <div class="info-item"><span class="label">Focus</span><span class="value">RPA, Web & Android</span></div>
+            </div>
+            <div class="action-buttons" style="margin-top: 30px;">
+              <a href="mailto:sachindugimhana0@gmail.com" class="btn-primary-hero" style="font-size: 0.9rem;">Email Me</a>
+            </div>
           </div>
         </div>
-
-        <div class="action-buttons">
-          <a href="mailto:sachindugimhana0@gmail.com" class="btn-primary">
-            <i class="bi bi-envelope-fill"></i> Email Me
-          </a>
-          <a href="tel:+46762519803" class="btn-secondary">
-            <i class="bi bi-telephone-fill"></i> +46 76 251 9803
-          </a>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
     <section id="skills" class="skills-modern">
-  <div class="container">
-    <div class="section-header">
-      <h2>Tech Stack</h2>
-      <p>My technical arsenal and tools of choice</p>
-    </div>
-
-    <div class="tech-grid">
-      <div class="tech-category">
-        <h3><i class="fas fa-robot"></i> Automation & RPA</h3>
-        <div class="pill-container">
-          <span class="tech-pill highlight">UiPath</span>
-          <span class="tech-pill highlight">Power Automate</span>
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Tech Stack</h2>
+          <p>My technical arsenal and tools of choice</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3><i class="fa-solid fa-robot"></i> Automation & RPA</h3>
+            <div class="pill-container">
+              <span class="tech-pill highlight">UiPath</span>
+              <span class="tech-pill highlight">Power Automate</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3><i class="fa-solid fa-code"></i> Frontend</h3>
+            <div class="pill-container">
+              <span class="tech-pill"><i class="devicon-react-original"></i> React JS</span>
+              <span class="tech-pill"><i class="devicon-javascript-plain"></i> JavaScript</span>
+              <span class="tech-pill"><i class="devicon-html5-plain"></i> HTML5/CSS3</span>
+              <span class="tech-pill"><i class="devicon-flutter-plain"></i> Flutter</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3><i class="fa-solid fa-server"></i> Backend</h3>
+            <div class="pill-container">
+              <span class="tech-pill"><i class="devicon-java-plain"></i> Java</span>
+              <span class="tech-pill"><i class="devicon-nodejs-plain"></i> Node.js</span>
+              <span class="tech-pill"><i class="devicon-python-plain"></i> Python</span>
+              <span class="tech-pill"><i class="devicon-csharp-plain"></i> C#</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3><i class="fa-solid fa-database"></i> Database</h3>
+            <div class="pill-container">
+              <span class="tech-pill">MongoDB</span>
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">SQL Server</span>
+              <span class="tech-pill">Firebase</span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="tech-category">
-        <h3><i class="fas fa-code"></i> Frontend</h3>
-        <div class="pill-container">
-          <span class="tech-pill"><i class="devicon-react-original"></i> React JS</span>
-          <span class="tech-pill"><i class="devicon-javascript-plain"></i> JavaScript</span>
-          <span class="tech-pill"><i class="devicon-html5-plain"></i> HTML5/CSS3</span>
-          <span class="tech-pill"><i class="devicon-flutter-plain"></i> Flutter</span>
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3><i class="fas fa-server"></i> Backend</h3>
-        <div class="pill-container">
-          <span class="tech-pill"><i class="devicon-java-plain"></i> Java</span>
-          <span class="tech-pill"><i class="devicon-nodejs-plain"></i> Node.js</span>
-          <span class="tech-pill"><i class="devicon-python-plain"></i> Python</span>
-          <span class="tech-pill"><i class="devicon-csharp-plain"></i> C#</span>
-          <span class="tech-pill">PHP</span>
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3><i class="fas fa-database"></i> Database</h3>
-        <div class="pill-container">
-          <span class="tech-pill">MongoDB</span>
-          <span class="tech-pill">MySQL</span>
-          <span class="tech-pill">SQL Server</span>
-          <span class="tech-pill">Firebase</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     <section id="resume" class="resume-modern">
-  <div class="container">
-    
-    <div class="section-header">
-      <h2>Resume</h2>
-      <a href="SachinduPathirawasamCV.pdf" class="resume-download-btn" target="_blank">
-        <i class="fas fa-file-download"></i> Download CV
-      </a>
-    </div>
-
-    <div class="resume-grid">
-      
-      <div class="resume-column">
-        <h3 class="column-title"><i class="fas fa-briefcase"></i> Professional Experience</h3>
-        
-        <div class="timeline-wrapper">
-          <div class="timeline-item">
-            <span class="timeline-date">2023 - 2024</span>
-            <h4>Associate Solutions Developer (RPA)</h4>
-            <span class="timeline-company">John Keells Information Technology</span>
-            <div class="timeline-content">
-              <ul>
-                <li>Developed complex RPA solutions using UiPath, reducing manual processing time by 40%.</li>
-                <li>Collaborated with cross-functional teams to identify automation opportunities.</li>
-                <li>Maintained and debugged existing bots to ensure 99.9% uptime.</li>
-              </ul>
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Resume</h2>
+        </div>
+        <div class="resume-grid">
+          <div class="resume-column">
+            <h3 class="column-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
+            <div class="timeline-wrapper">
+              <div class="timeline-item">
+                <span class="timeline-date">2023 - 2024</span>
+                <h4>Associate Solutions Developer (RPA)</h4>
+                <span class="timeline-company">John Keells IT</span>
+                <div class="timeline-content">
+                  <ul>
+                    <li>Developed complex RPA solutions using UiPath, reducing manual processing time by 40%.</li>
+                    <li>Collaborated with cross-functional teams to identify automation opportunities.</li>
+                    <li>Maintained and debugged existing bots to ensure 99.9% uptime.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">2022 - 2023</span>
+                <h4>Intern RPA</h4>
+                <span class="timeline-company">John Keells IT</span>
+                <div class="timeline-content">
+                  <ul>
+                    <li>Assisted in the design and deployment of 10+ automated workflows.</li>
+                    <li>Gained hands-on experience with Power Automate and SQL integration.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="timeline-item">
-            <span class="timeline-date">2022 - 2023</span>
-            <h4>Intern RPA</h4>
-            <span class="timeline-company">John Keells Information Technology</span>
-            <div class="timeline-content">
-              <ul>
-                <li>Assisted in the design and deployment of 10+ automated workflows.</li>
-                <li>Gained hands-on experience with Power Automate and SQL integration.</li>
-              </ul>
+          <div class="resume-column">
+            <h3 class="column-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+            <div class="timeline-wrapper">
+              <div class="timeline-item">
+                <span class="timeline-date">2024 - Present</span>
+                <h4>MSc Computational Social Science</h4>
+                <span class="timeline-company">Linköping University</span>
+                <p style="color: #cbd5e1; font-size: 0.9rem;">Focusing on data analysis, social simulation, and machine learning methods.</p>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-date">2019 - 2023</span>
+                <h4>BSc (Hons) Information Technology</h4>
+                <span class="timeline-company">SLIIT</span>
+                <p style="color: #cbd5e1; font-size: 0.9rem;">Specializing in Software Engineering. Graduated with honors.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="resume-column">
-        <h3 class="column-title"><i class="fas fa-graduation-cap"></i> Education</h3>
-        
-        <div class="timeline-wrapper">
-          <div class="timeline-item">
-            <span class="timeline-date">2024 - Present</span>
-            <h4>MSc in Computational Social Science</h4>
-            <span class="timeline-company">Linköping University</span>
-            <p class="timeline-desc">Focusing on data analysis, social simulation, and machine learning methods.</p>
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-date">2019 - 2023</span>
-            <h4>BSc (Hons) in Information Technology</h4>
-            <span class="timeline-company">SLIIT</span>
-            <p class="timeline-desc">Specializing in Software Engineering. Graduated with 2nd class honours, lower division.</p>
-            <p class="timeline-desc">GPA: 3.03/4.0</p>
-          </div>
-        </div>
-
-        <h3 class="column-title" style="margin-top: 40px;"><i class="fas fa-book"></i> Publications</h3>
-        <div class="timeline-wrapper">
-           <div class="timeline-item">
-            <span class="timeline-date">2022</span>
-            <h4>IEEE Publication</h4>
-            <p class="timeline-desc">
-              <a href="https://ieeexplore.ieee.org/document/9965696" target="_blank" class="pub-link">
-                Intelligent System for Skin Disease Detection of Dogs... <i class="fas fa-external-link-alt"></i>
-              </a>
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
     <section id="portfolio" class="portfolio-modern">
-  <div class="container">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <p>Showcasing full-stack development and mobile solutions</p>
-    </div>
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p>Showcasing full-stack development and mobile solutions</p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="card-image">
+              <img src="assets/img/portfolio/Parkme.jpg" alt="Automated Parking">
+              <div class="card-overlay">
+                <a href="https://github.com/SachinduG/Adminside-of-Automated-Parking-System" target="_blank" class="view-btn"><i class="bx bxl-github"></i> View Code</a>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>Automated Parking System</h3>
+              <p>Admin dashboard for managing parking slots and vehicle allocation using automated triggers.</p>
+              <div class="tech-tags"><span>Java</span><span>Android</span><span>Firebase</span></div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="card-image">
+              <img src="assets/img/portfolio/RentJet.png" alt="RentJet">
+              <div class="card-overlay">
+                <a href="https://github.com/SachinduG/Adminside-of-Vehicle-Rental-System" target="_blank" class="view-btn"><i class="bx bxl-github"></i> View Code</a>
+              </div>
+            </div>
+            <div class="card-content">
+              <h3>RentJet Vehicle Rental</h3>
+              <p>A comprehensive vehicle booking platform with real-time availability tracking.</p>
+              <div class="tech-tags"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
 
-    <div class="project-grid">
-      
-      <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/Parkme.jpg" alt="Automated Parking">
-          <div class="card-overlay">
-            <a href="https://github.com/SachinduG/Adminside-of-Automated-Parking-System" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
+    <section id="certificates" class="section-modern">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <p>Validated expertise in Automation, Cybersecurity, and Data Science</p>
+        </div>
+        
+        <h3 class="cert-category-title"><i class="bx bx-bot"></i> Automation</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-logo"><img src="assets/img/UIPathADT.png" alt="UiPath"></div>
+            <div class="cert-content">
+              <h4>Automation Developer Associate</h4>
+              <span class="issuer">UiPath Academy</span>
+              <a href="#" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
+    <section id="blogs" class="section-modern">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Technical Writing</h2>
+          <p>Sharing insights on Full Stack Development and Architecture.</p>
+        </div>
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-img-wrapper">
+              <img src="assets/img/mern.jpg" alt="MERN">
+            </div>
+            <div class="blog-content">
+              <h3>Server-side CRUD with MERN</h3>
+              <p>A step-by-step guide to building robust backend services using MongoDB, Express, React, and Node.js.</p>
+              <a href="https://sachindugimhana.medium.com/" class="read-link">Read Article <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+          </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-modern">
+      <div class="container" data-aos="fade-up">
+        <div class="contact-wrapper">
+          <div class="section-header">
+            <h2>Let's Connect</h2>
+            <p>Open for opportunities in RPA, Data Science, and Full Stack Development.</p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="icon-box"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <h4 style="color:#94a3b8; font-size:0.8rem; text-transform:uppercase;">Location</h4>
+                <p style="font-weight:600;">Norrköping, Sweden</p>
+              </div>
+            </div>
+            <a href="mailto:sachindugimhana0@gmail.com" class="contact-card">
+              <div class="icon-box"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <h4 style="color:#94a3b8; font-size:0.8rem; text-transform:uppercase;">Email Me</h4>
+                <p style="font-weight:600;">sachindugimhana0@gmail.com</p>
+              </div>
             </a>
           </div>
         </div>
-        <div class="card-content">
-          <h3>Automated Parking System</h3>
-          <p>Admin dashboard for managing parking slots and vehicle allocation using automated triggers.</p>
-          <div class="tech-tags">
-            <span>Java</span>
-            <span>Android</span>
-            <span>Firebase</span>
-          </div>
-        </div>
       </div>
+    </section>
 
-      <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/RentJet.png" alt="Vehicle Rental">
-          <div class="card-overlay">
-            <a href="https://github.com/SachinduG/Adminside-of-Vehicle-Rental-System" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
-            </a>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>RentJet Vehicle Rental</h3>
-          <p>A comprehensive vehicle booking platform with real-time availability tracking.</p>
-          <div class="tech-tags">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
-          </div>
-        </div>
-      </div>
+  </main>
 
-      <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/Picture1.jpg" alt="SmartFuel">
-          <div class="card-overlay">
-            <a href="https://github.com/SachinduG/EAD_FE" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
-            </a>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>SmartFuel App</h3>
-          <p>Mobile application to streamline fuel station queues and inventory management.</p>
-          <div class="tech-tags">
-            <span>Flutter</span>
-            <span>Rest API</span>
-            <span>Cloud Firestore</span>
-          </div>
-        </div>
-      </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    /* 1. Initialize Animation on Scroll */
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
 
-      <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/osgi.jpg" alt="OSGi Store">
-          <div class="card-overlay">
-            <a href="https://github.com/SachinduG/OSGI_ShoppingStore" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
-            </a>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>Modular Shopping Store</h3>
-          <p>An e-commerce architecture demonstrating OSGi modularity and dynamic service binding.</p>
-          <div class="tech-tags">
-            <span>Java OSGi</span>
-            <span>Eclipse</span>
-            <span>Software Architecture</span>
-          </div>
-        </div>
-      </div>
+    /* 2. Mobile Nav Toggle */
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const body = document.querySelector('body');
+    const icon = mobileNavToggle.querySelector('i');
 
-       <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/icaf.jpeg" alt="ICAF Tool">
-          <div class="card-overlay">
-            <a href="https://github.com/SachinduG/ICAF---AF_Project" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
-            </a>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>Conference Management</h3>
-          <p>A tool for managing research conference submissions, approvals, and scheduling.</p>
-          <div class="tech-tags">
-            <span>MERN Stack</span>
-            <span>JWT Auth</span>
-          </div>
-        </div>
-      </div>
+    mobileNavToggle.addEventListener('click', function() {
+      body.classList.toggle('mobile-nav-active');
+      icon.classList.toggle('bi-list');
+      icon.classList.toggle('bi-x');
+    });
 
-       <div class="project-card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/Screenshot 2022-03-31 202921.png" alt="Life Saviour">
-          <div class="card-overlay">
-            <a href="https://github.com/Jayamith/ctse_flutter_app" target="_blank" class="view-btn">
-              <i class="bx bxl-github"></i> View Code
-            </a>
-          </div>
-        </div>
-        <div class="card-content">
-          <h3>Life Saviour Battery</h3>
-          <p>Utility app for monitoring battery health and optimizing power consumption.</p>
-          <div class="tech-tags">
-            <span>Flutter</span>
-            <span>Dart</span>
-            <span>Native Hardware</span>
-          </div>
-        </div>
-      </div>
+    /* 3. Active Link State (Scrollspy) */
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#navbar a');
 
-    </div>
-  </div>
-</section>
-      <section id="certificates" class="certs-modern">
-  <div class="container">
-    <div class="section-header">
-      <h2>Professional Certifications</h2>
-      <p>Validated expertise in Automation, Cybersecurity, and Data Science</p>
-    </div>
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
 
-    <h3 class="cert-category-title"><i class="bx bx-bot"></i> Automation & Development</h3>
-    <div class="cert-grid">
-      
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/UIPathADT.png" alt="UiPath">
-        </div>
-        <div class="cert-content">
-          <h4>Automation Developer Associate</h4>
-          <span class="issuer">UiPath Academy</span>
-          <a href="https://credentials.uipath.com/568902e9-9512-43a6-bf83-538c4cb4b883" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/UIPathAI.png" alt="UiPath AI">
-        </div>
-        <div class="cert-content">
-          <h4>Specialized AI Associate</h4>
-          <span class="issuer">UiPath Academy</span>
-          <a href="https://credentials.uipath.com/e3f052d5-29d3-4334-a957-a23d569e7412" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/MSPPF.png" alt="Microsoft">
-        </div>
-        <div class="cert-content">
-          <h4>Power Platform Fundamentals</h4>
-          <span class="issuer">Microsoft</span>
-          <a href="https://www.credly.com/badges/5214a1e7-d6f6-434c-a616-e87c9ec29f65" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-       <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/CC.png" alt="FreeCodeCamp">
-        </div>
-        <div class="cert-content">
-          <h4>Foundational C#</h4>
-          <span class="issuer">Microsoft / FreeCodeCamp</span>
-          <a href="https://www.freecodecamp.org/certification/fcc3c5d4a9d-d82a-4287-a84a-d20b6756f27d/foundational-c-sharp-with-microsoft" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="cert-category-title"><i class="bx bx-shield-quarter"></i> Security & Data</h3>
-    <div class="cert-grid">
-      
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/Fort.png" alt="Fortinet">
-        </div>
-        <div class="cert-content">
-          <h4>Certified Fundamentals</h4>
-          <span class="issuer">Fortinet Cybersecurity</span>
-          <a href="https://www.credly.com/badges/103b867c-0b2c-4080-a568-2e028eb70e5b" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/AIF.png" alt="IBM">
-        </div>
-        <div class="cert-content">
-          <h4>AI Fundamentals</h4>
-          <span class="issuer">IBM SkillsBuild</span>
-          <a href="https://www.credly.com/badges/e5d335fe-0fbd-48f7-a46c-d4ef3d1dbcc3" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/mongo.png" alt="MongoDB">
-        </div>
-        <div class="cert-content">
-          <h4>Relational to Document Model</h4>
-          <span class="issuer">MongoDB</span>
-          <a href="https://www.credly.com/badges/faecc945-7429-4ee8-b498-c0c47106c197" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-logo">
-          <img src="assets/img/CF.png" alt="IBM">
-        </div>
-        <div class="cert-content">
-          <h4>Cybersecurity Fundamentals</h4>
-          <span class="issuer">IBM SkillsBuild</span>
-          <a href="https://www.credly.com/badges/4cb44c27-bff6-4cd1-b473-0301bac5ecfc" target="_blank" class="cert-link">Verify <i class="bx bx-link-external"></i></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-    <section id="blogs" class="section-dark">
-  <div class="container">
-    <div class="section-header">
-      <h2>Technical Writing</h2>
-      <p>Sharing insights on Full Stack Development, Architecture, and Databases.</p>
-    </div>
-
-    <div class="blog-grid">
-      <article class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="assets/img/mern.jpg" alt="MERN Stack">
-          <span class="platform-badge"><i class="bi bi-medium"></i> Medium</span>
-        </div>
-        <div class="blog-content">
-          <h3>Server-side CRUD with MERN</h3>
-          <p>A step-by-step guide to building robust backend services using MongoDB, Express, React, and Node.js.</p>
-          <a href="https://sachindugimhana.medium.com/serverside-for-crud-using-mern-stack-c5ec995b34f9" target="_blank" class="read-link">Read Article <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="assets/img/solid.png" alt="SOLID Principles">
-          <span class="platform-badge"><i class="bi bi-medium"></i> Medium</span>
-        </div>
-        <div class="blog-content">
-          <h3>SOLID Design Principles</h3>
-          <p>Mastering the five principles of object-oriented class design for cleaner, more maintainable code.</p>
-          <a href="https://sachindugimhana.medium.com/the-s-o-l-i-d-design-principles-845dadd731b6" target="_blank" class="read-link">Read Article <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </article>
-
-      <article class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="assets/img/sql.png" alt="SQL vs NoSQL">
-          <span class="platform-badge"><i class="bi bi-medium"></i> Medium</span>
-        </div>
-        <div class="blog-content">
-          <h3>SQL vs NoSQL: The 2021 Guide</h3>
-          <p>Analyzing the trade-offs between relational and document databases for modern application needs.</p>
-          <a href="https://sachindugimhana.medium.com/sql-vs-nosql-what-is-the-best-option-for-2021-162138ed1931" target="_blank" class="read-link">Read Article <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </article>
-      
-      <article class="blog-card">
-        <div class="blog-img-wrapper">
-          <img src="assets/img/react.png" alt="React vs Angular">
-          <span class="platform-badge"><i class="bi bi-medium"></i> Medium</span>
-        </div>
-        <div class="blog-content">
-          <h3>React vs Angular</h3>
-          <p>A comprehensive comparison of the two most popular frontend frameworks.</p>
-          <a href="https://sachindugimhana.medium.com/react-vs-angular-9c05d01bae90" target="_blank" class="read-link">Read Article <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section-darker">
-  <div class="container">
-    <div class="contact-wrapper">
-      
-      <div class="contact-header">
-        <h2>Let's Connect</h2>
-        <p>Open for opportunities in RPA, Data Science, and Full Stack Development.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="icon-box"><i class="bi bi-geo-alt-fill"></i></div>
-          <div class="contact-info">
-            <h4>Location</h4>
-            <p>Norrköping, Sweden</p>
-          </div>
-        </div>
-
-        <a href="mailto:sachindugimhana0@gmail.com" class="contact-card clickable">
-          <div class="icon-box"><i class="bi bi-envelope-fill"></i></div>
-          <div class="contact-info">
-            <h4>Email Me</h4>
-            <p>sachindugimhana0@gmail.com</p>
-          </div>
-        </a>
-
-        <a href="tel:+46762519803" class="contact-card clickable">
-          <div class="icon-box"><i class="bi bi-telephone-fill"></i></div>
-          <div class="contact-info">
-            <h4>Call Me</h4>
-            <p>+46 76 251 9803</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="social-links">
-        <a href="LINKEDIN_URL_HERE" class="social-btn linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="GITHUB_URL_HERE" class="social-btn github"><i class="bx bxl-github"></i></a>
-      </div>
-
-    </div>
-  </div>
-</section>
-</main><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <script src="assets/js/main.js"></script>
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+```
