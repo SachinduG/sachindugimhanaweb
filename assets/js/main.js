@@ -2,7 +2,7 @@
   "use strict";
 
   /**
-   * Easy selector helper function
+   * Helper: Select element
    */
   const select = (el, all = false) => {
     el = el.trim()
@@ -14,7 +14,7 @@
   }
 
   /**
-   * Easy event listener function
+   * Helper: Add Event Listener
    */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
@@ -28,14 +28,14 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Helper: Scroll Event
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
   /**
-   * Navbar links active state on scroll (Scrollspy)
+   * 1. Scrollspy (Highlights Sidebar Links)
    */
   let navbarlinks = select('#navbar .nav-link', true)
   const navbarlinksActive = () => {
@@ -55,18 +55,7 @@
   onscroll(document, navbarlinksActive)
 
   /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Back to top button
+   * 2. Back to Top Button
    */
   let backtotop = select('.back-to-top')
   if (backtotop) {
@@ -82,7 +71,7 @@
   }
 
   /**
-   * Mobile nav toggle
+   * 3. Mobile Navigation Toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active')
@@ -91,12 +80,10 @@
   })
 
   /**
-   * Scroll with offset on links with a class name .scrollto
+   * 4. Scroll to Section on Click (Mobile Close)
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
-      e.preventDefault()
-
       let body = select('body')
       if (body.classList.contains('mobile-nav-active')) {
         body.classList.remove('mobile-nav-active')
@@ -105,23 +92,11 @@
         icon.classList.toggle('bi-list')
         icon.classList.toggle('bi-x')
       }
-      scrollto(this.hash)
     }
   }, true)
 
   /**
-   * Scroll with offset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Animation on scroll (AOS)
+   * 5. Initialize Animations (AOS)
    */
   window.addEventListener('load', () => {
     if (typeof AOS !== 'undefined') {
@@ -129,8 +104,7 @@
         duration: 1000,
         easing: 'ease-in-out',
         once: true,
-        mirror: false,
-        offset: 50
+        mirror: false
       });
     }
   });
