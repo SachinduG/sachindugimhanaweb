@@ -307,7 +307,7 @@ section {
 }
 
 /* =======================================================
-   10. MOBILE / RESPONSIVE
+   10. MOBILE / RESPONSIVE & BACK TO TOP
    ======================================================= */
 .mobile-nav-toggle {
   position: fixed; right: 15px; top: 15px; z-index: 9998;
@@ -315,6 +315,25 @@ section {
   width: 45px; height: 45px; display: none; align-items: center; justify-content: center;
   border-radius: 50%; cursor: pointer;
 }
+
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: var(--primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back-to-top i { font-size: 24px; color: #fff; line-height: 0; }
+.back-to-top.active { visibility: visible; opacity: 1; }
 
 @media (max-width: 1199px) {
   #header { left: -300px; }
