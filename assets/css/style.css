@@ -360,3 +360,72 @@ section {
   .resume-grid, .hero-buttons { flex-direction: column; }
   .hero-modern h1 { font-size: 2.5rem; }
 }
+/* =======================================================
+   11. SIDEBAR TOGGLE LOGIC (OPEN/CLOSE)
+   ======================================================= */
+
+/* The Toggle Button Style */
+.header-toggle {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 9999; /* Always on top */
+  border: 0;
+  font-size: 24px;
+  background-color: var(--primary);
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  display: flex; /* Ensure flex is active */
+  align-items: center;
+  justify-content: center;
+}
+
+.header-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* --- DESKTOP BEHAVIOR (Screens > 1199px) --- */
+@media (min-width: 1200px) {
+  /* If body has class 'header-collapsed', hide sidebar */
+  body.header-collapsed #header {
+    left: -300px; 
+  }
+  
+  /* Expand main content to full width */
+  body.header-collapsed #main {
+    margin-left: 0;
+  }
+  
+  /* Move footer if it exists */
+  body.header-collapsed #footer {
+    left: -300px;
+  }
+}
+
+/* --- MOBILE BEHAVIOR (Screens < 1199px) --- */
+@media (max-width: 1199px) {
+  /* Default state: Sidebar Hidden */
+  #header {
+    left: -300px;
+  }
+  
+  /* Default state: Main content full width */
+  #main {
+    margin-left: 0;
+  }
+
+  /* When active: Show sidebar */
+  body.mobile-nav-active #header {
+    left: 0;
+  }
+  
+  /* Move toggle button when menu is open (optional, looks cleaner) */
+  body.mobile-nav-active .header-toggle {
+    right: 20px; 
+  }
+}
