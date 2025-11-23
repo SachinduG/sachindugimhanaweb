@@ -1500,3 +1500,79 @@ input:checked + .slider:before {
         padding: 30px 20px;
       }
     }
+
+.skills-modern {
+  background: #0f172a; /* Deep distinct blue-black */
+  color: #fff;
+  padding: 80px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.tech-category {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #334155;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tech-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  border-color: #667eea;
+}
+
+.tech-category h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tech-category h3 i {
+  color: #667eea;
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-pill {
+  background: #334155;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.tech-pill i {
+  font-size: 1.1em;
+}
+
+.tech-pill:hover {
+  background: #475569;
+  color: #fff;
+}
+
+/* Highlight your main skills */
+.tech-pill.highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
