@@ -1,3 +1,136 @@
+/* Container and Header */
+.resume-modern {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 80px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.resume-download-btn {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid #667eea;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.resume-download-btn:hover {
+  background: #667eea;
+  color: #fff;
+}
+
+/* Grid Layout */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 60px;
+}
+
+.column-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column-title i {
+  color: #667eea;
+}
+
+/* Timeline Logic */
+.timeline-wrapper {
+  position: relative;
+  border-left: 2px solid #334155;
+  padding-left: 30px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -39px; /* Adjust based on border/padding */
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 2px solid #667eea;
+}
+
+.timeline-date {
+  display: inline-block;
+  background: #1e293b;
+  color: #94a3b8;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-item h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 5px 0;
+}
+
+.timeline-company {
+  display: block;
+  font-style: italic;
+  color: #667eea;
+  margin-bottom: 15px;
+}
+
+.timeline-content ul {
+  padding-left: 20px;
+  color: #cbd5e1;
+}
+
+.timeline-content li {
+  margin-bottom: 8px;
+}
+
+.pub-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.pub-link:hover {
+  color: #667eea;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .resume-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 40px;
+  }
+}
 /* Base Layout */
 .about-modern {
   background: #0f172a; /* Matches the Skills section dark theme */
